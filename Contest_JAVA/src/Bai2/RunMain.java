@@ -55,27 +55,33 @@ public class RunMain {
         System.out.print("Enter the id: ");
         id = sc.nextInt();
         sc.nextLine();
+        boolean any = true;
         for(int i=0; i<books.size(); i++) {
 
             if(books.get(i).getId() == id) {
                 Book book = new Book();
                 book.input();
+                book.setId(id);
                 books.set(i, book);
+                any = false;
             }
         }
-        System.out.println("The book is edited");
+        System.out.println();
+        System.out.println((!any) ? "The book is edited" : "This is no id in shop");
 
     }
 
     public static void DeleteBook(ArrayList<Book> books) {
         int id;
         System.out.println("Enter the id: "); id = sc.nextInt();
+        boolean any = true;
         for(int i=0; i<books.size(); i++) {
             if(books.get(i).getId() == id) {
                 books.remove(i);
+                any = false;
             }
         }
-        System.out.println("The book is deleted");
+        System.out.println((!any) ? "The book is deteted" : "This is no id in shop");
     }
 
     public static void SortByName(ArrayList<Book> books) {
@@ -83,7 +89,7 @@ public class RunMain {
             for (int j = i + 1; j < books.size(); j++) {
                 String res1 = books.get(i).getName();
                 String res2 = books.get(j).getName();
-                if(res1.compareTo(res2) > 0) {
+                if(res1.compareToIgnoreCase(res2) > 0) {
                     Collections.swap(books, i, j);
                 }
 

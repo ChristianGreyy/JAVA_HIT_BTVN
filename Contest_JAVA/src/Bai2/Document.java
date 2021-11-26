@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class Document {
     static Scanner sc = new Scanner(System.in);
-    private static int idALl = 0;
+    protected static int idALl = 0;
 
-    private int id;
-    private String name;
-    private String publisher;
-    private float price;
+    protected int id;
+    protected String name;
+    protected String publisher;
+    protected float price;
 
     public Document() {
         idALl++;
